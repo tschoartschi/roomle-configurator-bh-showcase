@@ -19,6 +19,6 @@
   "homepage": "https://github.com/tschoartschi/roomle-configurator-bh-showcase#readme",
   "devDependencies": {
     "http-server": "^0.11.1",
-    "roomle-configurator-v2": "git+https://github.com/Roomle/configurator-api-v2.git#1.0.48"
+    "roomle-configurator-v2": "git+https://github.com/Roomle/configurator-api-v2.git#1.0.49"
   }
 }

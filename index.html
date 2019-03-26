@@ -57,7 +57,8 @@
                         // set parameter to a well known value 
                         await RoomleConfigurator.setParameterOfRootComponent(param, '1');
                         // generate images
-                        const {topImage,perspectiveImage} = await RoomleConfigurator.generateImagesOfCurrentConfiguration();
+                        const topImage = await RoomleConfigurator.prepareTopImage(true);
+                        console.log(topImage.image);
                         // reset parameter to old value
                         await RoomleConfigurator.setParameterOfRootComponent(param, oldVal);
 

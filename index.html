@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+    <html>
+        <head>
+            <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <title>Roomle Configurator</title>
+            <meta name="description" content="">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <style>
+                body {
+                    margin: 0;
+                    padding: 0;
+                    overflow: hidden;
+                }
+                #configurator-container {
+                    width:80%;
+                    height:80vh;
+                }
+            </style>
+        </head>
+
+        <body>
+            <button id="top-image">Generate TopImages</button>
+            <div id="configurator-container"></div>
+            <script src="node_modules/roomle-configurator-v2/dist/roomle-configurator-api.js"></script>
+            <script>
+            document.addEventListener('DOMContentLoaded', async function () {
+                try {
+                    const options = {
+                        hideButtons: {
+                            //share: true,
+                            //ar: true,
+                            save: true,
+                            load: true,
+                            //resetCamera: true,
+                            //multiselect: true,
+                            //fullscreen: true,
+                            //info: true,
+                            //addon: true,
+                            //delete: true,
+                            //differentConfig: true,
+                            //sidebar: true
+                        }
+                    };
+                    await RoomleConfigurator.init('demoConfigurator', 'configurator-container', 'usm:frame:BB3BB3E7951BC15109B1FF86D78C95DE3FB46E9F78714C46FFA2DE91866A2C2B', options);
+                    document.getElementById('top-image').addEventListener('click', async ()=> {
+                        throw new Error('Not implemented now! Will follow in the next hours');
+                        // fetch current parameters of the whole object
+                        const params = await RoomleConfigurator.getParametersOfPlanObject();
+                        // filter for the parameter which we are interested in 
+                        const param = params.find((param)=>param.key==='colorMaterial');
+                        // save the old value so we can reset after generation of images
+                        const oldVal = param.value;
+                        // set parameter to a well known value 
+                        await RoomleConfigurator.setParameterOfPlanObject(param, 'usm:black');
+                        // generate images
+                        const {topImage,perspectiveImage} = await RoomleConfigurator.generateImagesOfCurrentConfiguration();
+                        // reset parameter to old value
+                        await RoomleConfigurator.setParameterOfPlanObject(param, oldVal);
+                    });
+                } catch(error) {
+                    console.error(error);
+                }
+            });
+            </script>
+        </body>
+    </html>

@@ -27,11 +27,12 @@
             document.addEventListener('DOMContentLoaded', async function () {
                 try {
                     const options = {
+                        __overrideServerUrl: 'http://localhost:4747',
                         hideButtons: {
-                            //share: true,
+                            share: true,
                             //ar: true,
-                            save: true,
-                            load: true,
+                            //save: true,
+                            //load: true,
                             //resetCamera: true,
                             //multiselect: true,
                             //fullscreen: true,
@@ -42,21 +43,27 @@
                             //sidebar: true
                         }
                     };
-                    await RoomleConfigurator.init('demoConfigurator', 'configurator-container', 'usm:frame:BB3BB3E7951BC15109B1FF86D78C95DE3FB46E9F78714C46FFA2DE91866A2C2B', options);
+                    await RoomleConfigurator.init('demoConfigurator', 'configurator-container', 'biohort:highline', options);
                     document.getElementById('top-image').addEventListener('click', async ()=> {
+                        // Here is the place to put a loading div above the configurator
+                        // PUT YOUR IMPLEMENTATION HERE
+
                         throw new Error('Not implemented now! Will follow in the next hours');
                         // fetch current parameters of the whole object
-                        const params = await RoomleConfigurator.getParametersOfPlanObject();
+                        const params = await RoomleConfigurator.getParametersOfRootComponent();
                         // filter for the parameter which we are interested in 
-                        const param = params.find((param)=>param.key==='colorMaterial');
+                        const param = params.find((param)=>param.key==='showDoorArea');
                         // save the old value so we can reset after generation of images
                         const oldVal = param.value;
                         // set parameter to a well known value 
-                        await RoomleConfigurator.setParameterOfPlanObject(param, 'usm:black');
+                        await RoomleConfigurator.setParameterOfRootComponent(param, '1');
                         // generate images
                         const {topImage,perspectiveImage} = await RoomleConfigurator.generateImagesOfCurrentConfiguration();
                         // reset parameter to old value
-                        await RoomleConfigurator.setParameterOfPlanObject(param, oldVal);
+                        await RoomleConfigurator.setParameterOfRootComponent(param, oldVal);
+
+                        // Here is the place to remove the loading div above the configurator
+                        // PUT YOUR IMPLEMENTATION HERE
                     });
                 } catch(error) {
                     console.error(error);

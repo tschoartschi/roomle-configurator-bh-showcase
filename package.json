@@ -1,24 +1,24 @@
 {
-  "name": "roomle-configurator-bh-showcase",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "serve": "http-server -p 12834 -c-1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/tschoartschi/roomle-configurator-bh-showcase.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/tschoartschi/roomle-configurator-bh-showcase/issues"
-  },
-  "homepage": "https://github.com/tschoartschi/roomle-configurator-bh-showcase#readme",
-  "devDependencies": {
-    "http-server": "^0.11.1",
-    "roomle-configurator-v2": "git+https://github.com/Roomle/configurator-api-v2.git#1.0.49"
-  }
+    "name": "roomle-configurator-bh-showcase",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "serve": "http-server -p 12834 -c-1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/tschoartschi/roomle-configurator-bh-showcase.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/tschoartschi/roomle-configurator-bh-showcase/issues"
+    },
+    "homepage": "https://github.com/tschoartschi/roomle-configurator-bh-showcase#readme",
+    "devDependencies": {
+        "http-server": "^0.11.1",
+        "roomle-configurator-v2": "git+https://github.com/Roomle/configurator-api-v2.git#1.0.50"
+    }
 }

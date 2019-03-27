@@ -27,6 +27,7 @@
             document.addEventListener('DOMContentLoaded', async function () {
                 try {
                     const options = {
+                        __overrideServerUrl: 'https://alpha.roomle.com/t/configurator',
                         hideButtons: {
                             share: true,
                             //ar: true,
@@ -47,7 +48,7 @@
                         // Here is the place to put a loading div above the configurator
                         // PUT YOUR IMPLEMENTATION HERE
 
-                        throw new Error('Not implemented now! Will follow in the next hours');
+                        // throw new Error('Not implemented now! Will follow in the next hours');
                         // fetch current parameters of the whole object
                         const params = await RoomleConfigurator.getParametersOfRootComponent();
                         // filter for the parameter which we are interested in 
